@@ -1,0 +1,15 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Á´‡’ùÿÿÿÿ8ï§Þ´É1
+[
+java:S5993"9Change the visibility of this constructor to "protected".(Ó Þ‹ÿÿÿÿÿ8ó§Þ´É1
+N
+java:S1128",Remove this unused import 'iam.UserProfile'.(®åÞ€ýÿÿÿÿ8ù§Þ´É1
+U
+java:S1068
+"8Remove this unused "iUserActivityService" private field.(ü»­±8û§Þ´É1
+Q
+java:S1068"/Remove this unused "userService" private field.(¡ö‘‰øÿÿÿÿ8û§Þ´É1
+I
+java:S1068",Remove this unused "iPayment" private field.(˜ÛÄš8ü§Þ´É1
+M
+java:S1068"0Remove this unused "iPostService" private field.(·„‚Ã8ü§Þ´É1
