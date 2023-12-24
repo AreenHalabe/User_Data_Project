@@ -3,6 +3,7 @@ package data;
 import activity.IUserActivityService;
 import activity.UserActivity;
 import activity.UserActivityService;
+import data.Userdata.UserData;
 import iam.IUserService;
 import iam.UserProfile;
 import iam.UserService;
@@ -30,8 +31,8 @@ public class Application {
         System.out.println("Application Started: " + start);
         //TODO Your application starts here. Do not Change the existing code
 
-       var ob = userService.getUser("user1");
-       System.out.println(ob.getUserType());
+        UserData userData = new UserData(userActivityService,userService,paymentService,postService);
+        userData.getData("user1" , "pass1");
 
 
 
