@@ -3,6 +3,8 @@ package data;
 import activity.IUserActivityService;
 import activity.UserActivity;
 import activity.UserActivityService;
+import data.Convert_pdf.PdfFileConverter;
+import data.Convert_zip.ZipFileConverter;
 import data.Userdata.UserData;
 import iam.IUserService;
 import iam.UserProfile;
@@ -34,7 +36,8 @@ public class Application {
         UserData userData = new UserData(userActivityService,userService,paymentService,postService);
         userData.getData("user1" , "pass1");
 
-
+        testPdfConversion();
+        testPdfToZipConversion();
 
 
 
@@ -104,5 +107,19 @@ public class Application {
         } else {
             return UserType.PREMIUM_USER;
         }
+    }
+    private static void testPdfConversion() {
+        String inputFileName = "user1.txt";
+        String outputFileName = "user.pdf";
+
+        PdfFileConverter pdfFileConverter = new PdfFileConverter();
+        pdfFileConverter.convert_Pdf(inputFileName, outputFileName);
+    }
+    private static void testPdfToZipConversion() {
+        String pdfFileName = "File_Storeg_data/user.pdf";
+        String zipFileName = "File_Storeg_data/output.zip";
+
+        ZipFileConverter converter = new ZipFileConverter();
+        converter.convertToZip(pdfFileName, zipFileName);
     }
 }
