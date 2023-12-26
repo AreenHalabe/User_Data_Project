@@ -26,7 +26,7 @@ public class ZipFileConverter implements ConvertToZip{
             }
 
             zos.closeEntry();
-            System.out.println("Conversion to ZIP successful.");
+            System.out.println("success to zip conversion.");
         } catch (IOException e) {
             e.printStackTrace();
         }

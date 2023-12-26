@@ -8,11 +8,11 @@ import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.io.IOException;
+
 
 public class PdfFileConverter implements convertToPdf {
     private String folderPath = "File_Storeg_data";
-    private boolean createfile = false;
+
 
 
     @Override
@@ -27,11 +27,10 @@ public class PdfFileConverter implements convertToPdf {
                 Files.createDirectories(filePath.getParent());
             }
 
-            // Open the document before writing to it
             PdfWriter.getInstance(document, new FileOutputStream(outputPath.toString()));
             document.open();
 
-            // Add content to the document
+
             Files.lines(filePath).forEach(line -> {
                 try {
                     document.add(new Paragraph(line));
@@ -42,7 +41,7 @@ public class PdfFileConverter implements convertToPdf {
 
             // Close the document after adding content
             document.close();
-            System.out.println("Conversion to PDF successful.");
+            System.out.println("success to pdf conversion.");
         } catch (Exception e) {
             e.printStackTrace();
         }

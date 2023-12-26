@@ -18,6 +18,7 @@ import posts.Post;
 import posts.PostService;
 
 import java.time.Instant;
+import java.util.Scanner;
 
 public class Application {
 
@@ -36,9 +37,18 @@ public class Application {
         UserData userData = new UserData(userActivityService,userService,paymentService,postService);
         userData.getData("user1" , "pass1");
 
-        testPdfConversion();
-        testPdfToZipConversion();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter 'pdf' to generate a PDF file, 'zip' to generate a ZIP file:");
+        String fileType = scanner.nextLine().toLowerCase();
 
+        if ("pdf".equals(fileType)) {
+            testPdfConversion();
+        } else if ("zip".equals(fileType)) {
+            testPdfConversion();
+            testPdfToZipConversion();
+        } else {
+            System.out.println(" Please enter valid input : 'pdf' or 'zip'");
+        }
 
 
 
@@ -110,14 +120,16 @@ public class Application {
     }
     private static void testPdfConversion() {
         String inputFileName = "user1.txt";
-        String outputFileName = "user.pdf";
+        String outputFileName = "user1.pdf";
 
         PdfFileConverter pdfFileConverter = new PdfFileConverter();
         pdfFileConverter.convert_Pdf(inputFileName, outputFileName);
     }
+
+
     private static void testPdfToZipConversion() {
-        String pdfFileName = "File_Storeg_data/user.pdf";
-        String zipFileName = "File_Storeg_data/output.zip";
+        String pdfFileName = "File_Storeg_data/user1.pdf";
+        String zipFileName = "File_Storeg_data/user1.zip";
 
         ZipFileConverter converter = new ZipFileConverter();
         converter.convertToZip(pdfFileName, zipFileName);
