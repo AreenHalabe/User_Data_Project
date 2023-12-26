@@ -32,17 +32,14 @@ public class UserData {
 
     public void getData(String name , String password){
        boolean UserExist= securityService.cheack(name , password);
-       if(UserExist){
-           storegeService= new TextFile(name+".txt");
-           Controllers = ControllerFactory.CreateController(securityService.getUsertype());
-           FetchData(Controllers , name , storegeService);
-           System.out.println("num of controller : "+Controllers.size());
-           System.out.println(securityService.getUsertype());
-           Controllers.clear();
-       }
-       else{
-           System.out.println("invalid password for this user");
-       }
+        if(UserExist){
+            storegeService= new TextFile(name+".txt");
+            Controllers = ControllerFactory.CreateController(securityService.getUsertype());
+            FetchData(Controllers , name , storegeService);
+            System.out.println("num of controller : "+Controllers.size());
+            System.out.println(securityService.getUsertype());
+            Controllers.clear();
+        }
     }
 
 

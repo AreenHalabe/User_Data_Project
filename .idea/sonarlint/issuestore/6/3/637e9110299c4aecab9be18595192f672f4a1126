@@ -1,0 +1,6 @@
+
+r	java:S117
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«•ΕΖϊÿÿÿÿ8ιδΏΚ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(€‰€ύÿÿÿÿ8κδΏΚ1
+P
+java:S1128"3Remove this unused import 'data.Userdata.UserData'.(ΏΉ‘8¥¥ΝΐΚ1

@@ -19,22 +19,38 @@ public class Security implements SecurityService{
     public boolean cheack(String name, String password) {
         var ob = Application.getUserService().getUser(name);
 
-        if (ob == null) {
-            throw new NullPointerException("User not found for name: " + name);
+        try{
+            if (ob == null) {
+                throw new NullPointerException("User not found for name : " + name);
+            }
 
-        }
 
-        else{
             if (name.equals(ob.getUserName()) && password.equals(ob.getPassword())) {
                 Usertype = ob.getUserType();
                 return true;
             }
 
+
             else{
-                return false;
+                throw new Exception("invalid password");
             }
 
+
+
+
+
+
+
         }
+        catch (NullPointerException e){
+            System.err.println(e.getMessage());
+        }
+
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+
+        return false;
 
     }
 }
