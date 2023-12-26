@@ -38,14 +38,16 @@ public class Application {
         userData.getData("user1" , "pass1");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Chose PDF or ZIP file:");
+        System.out.println("Chose PDF or ZIP File:");
         String fileType = scanner.nextLine().toLowerCase();
 
+        System.out.println("enter your name:");
+        String File = scanner.nextLine().toLowerCase();
         if ("pdf".equals(fileType)) {
-            testPdfConversion();
+            testPdfConversion(File);
         } else if ("zip".equals(fileType)) {
-            testPdfConversion();
-            testPdfToZipConversion();
+            testPdfConversion(File);
+            testPdfToZipConversion(File);
         } else {
             System.out.println(" Please enter valid input : 'pdf' or 'zip'");
         }
@@ -118,16 +120,19 @@ public class Application {
             return UserType.PREMIUM_USER;
         }
     }
-    private static void testPdfConversion() {
-
+    private static void testPdfConversion(String File ) {
+        String outputFileName =  File+".pdf";
 
         PdfFileConverter pdfFileConverter = new PdfFileConverter();
-        pdfFileConverter.convert_Pdf("user1.txt", "user1.pdf");    }
+        pdfFileConverter.convert_Pdf( File+".txt", outputFileName);
+    }
 
 
-    private static void testPdfToZipConversion() {
-        String pdfFileName = "File_Storeg_data/user1.pdf";
-        String zipFileName = "File_Storeg_data/user1.zip";
+    private static void testPdfToZipConversion(String File ) {
+        String pdfFile = File + ".pdf";
+        String zipFile = File + ".zip";
+        String pdfFileName = "File_Storeg_data/"+pdfFile ;
+        String zipFileName = "File_Storeg_data/"+zipFile;
 
         ZipFileConverter converter = new ZipFileConverter();
         converter.convertToZip(pdfFileName, zipFileName);
