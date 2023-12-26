@@ -38,7 +38,7 @@ public class Application {
         userData.getData("user1" , "pass1");
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter 'pdf' to generate a PDF file, 'zip' to generate a ZIP file:");
+        System.out.println("Chose PDF or ZIP file:");
         String fileType = scanner.nextLine().toLowerCase();
 
         if ("pdf".equals(fileType)) {
@@ -119,12 +119,10 @@ public class Application {
         }
     }
     private static void testPdfConversion() {
-        String inputFileName = "user1.txt";
-        String outputFileName = "user1.pdf";
+
 
         PdfFileConverter pdfFileConverter = new PdfFileConverter();
-        pdfFileConverter.convert_Pdf(inputFileName, outputFileName);
-    }
+        pdfFileConverter.convert_Pdf("user1.txt", "user1.pdf");    }
 
 
     private static void testPdfToZipConversion() {
