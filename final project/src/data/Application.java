@@ -24,6 +24,21 @@ public class Application {
     private static final IUserService userService = new UserService();
     private static final IPostService postService = new PostService();
 
+    public static IUserActivityService getUserActivityService(){
+        return userActivityService;
+    }
+
+    public static IPayment getPaymentService(){
+        return paymentService;
+    }
+
+    public static IUserService getUserService(){
+        return userService;
+    }
+    public static IPostService getPostService(){
+        return postService;
+    }
+
 
     public static void main(String[] args) {
         generateRandomData();
@@ -31,8 +46,14 @@ public class Application {
         System.out.println("Application Started: " + start);
         //TODO Your application starts here. Do not Change the existing code
 
-        UserData userData = new UserData(userActivityService,userService,paymentService,postService);
-        userData.getData("user1" , "pass1");
+        UserData userData = new UserData();
+
+
+
+
+
+
+        userData.getData("user4" , "pass4");
 
 
 

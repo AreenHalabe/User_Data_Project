@@ -2,7 +2,6 @@ package data.Api;
 
 import data.Userdata.UserData;
 import iam.UserType;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +9,15 @@ public class ControllerFactory {
 
     public static final List<Controller> CreateController(UserType type){
          List<Controller> controllerList = new ArrayList<>();
-        controllerList.add(new ProfileData());
-        controllerList.add(new PostData());
+        controllerList.add(new ProfileDataController());
+        controllerList.add(new PostDataController());
 
-        if ("REGULAR_USER".equals(type)) {
-            controllerList.add(new ActivityData());
+        if (UserType.REGULAR_USER.equals(type)) {
+            controllerList.add(new ActivityDataController());
         }
-        else if ("PREMIUM_USER".equals(type)) {
-            controllerList.add(new ActivityData());
-            controllerList.add(new PaymentData());
+        else if (UserType.PREMIUM_USER.equals(type)) {
+            controllerList.add(new ActivityDataController());
+            controllerList.add(new PaymentDataController());
         }
 
         return controllerList;

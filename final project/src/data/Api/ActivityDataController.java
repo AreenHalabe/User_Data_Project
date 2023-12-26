@@ -1,12 +1,13 @@
 package data.Api;
 
+import data.Application;
 import data.FileStorag.StoregeService;
 import data.Userdata.UserData;
 
-public class ActivityData implements Controller{
+public class ActivityDataController implements Controller{
     @Override
     public void getData(String name, StoregeService storegeService) {
-        var ActivityList = UserData.getiUserActivityService().getUserActivity(name);
+        var ActivityList = Application.getUserActivityService().getUserActivity(name);
         String data="";
         for (var activity:ActivityList) {
             data = activity.getId() + " , "+ activity.getActivityType() + " , "+ activity.getActivityDate();

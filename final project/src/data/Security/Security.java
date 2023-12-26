@@ -1,5 +1,6 @@
 package data.Security;
 
+import data.Application;
 import data.Userdata.UserData;
 import iam.IUserService;
 import iam.UserType;
@@ -16,7 +17,7 @@ public class Security implements SecurityService{
 
     @Override
     public boolean cheack(String name, String password) {
-        var ob = UserData.getUserService().getUser(name);
+        var ob = Application.getUserService().getUser(name);
 
         if (ob == null) {
             throw new NullPointerException("User not found for name: " + name);

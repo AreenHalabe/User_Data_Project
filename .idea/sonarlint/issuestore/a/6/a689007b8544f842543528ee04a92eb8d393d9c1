@@ -1,32 +1,0 @@
-
-f	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø’ÎÒ
-k	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ«îÂÿÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Á´‡’ùÿÿÿÿ
-q
-java:S3008"VRename this field "Controllers" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š–Åıÿÿÿÿ
-x
-java:S1450"]Remove the "storegeService" field and declare it as a local variable in the relevant methods.(Ë¸ãËşÿÿÿÿ
-G
-java:S3010"1Remove this assignment of "iUserActivityService".(ĞíÃİ
-C
-java:S3010"(Remove this assignment of "userService".(¥—Ùşÿÿÿÿ
-@
-java:S3010 "%Remove this assignment of "iPayment".(‘°ïÙûÿÿÿÿ
-?
-java:S3010!")Remove this assignment of "iPostService".(¢Æ›¡
-G
-java:S3010"",Remove this assignment of "securityService".(æ™‘‘úÿÿÿÿ
->
-java:S3010#"(Remove this assignment of "Controllers".(»İØê
-K
-java:S2209"5Change this instance-reference to a static reference.(ĞíÃİ
-P
-java:S2209"5Change this instance-reference to a static reference.(¥—Ùşÿÿÿÿ
-P
-java:S2209 "5Change this instance-reference to a static reference.(‘°ïÙûÿÿÿÿ
-K
-java:S2209!"5Change this instance-reference to a static reference.(¢Æ›¡
-Q
-java:S2696<"6Make the enclosing method "static" or remove this set.(½£ò—úÿÿÿÿ
-S	java:S106A"9Replace this use of System.out or System.err by a logger.(‰ãÆ•ùÿÿÿÿ
-h	java:S100F"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ«îÂÿÿÿÿÿ
