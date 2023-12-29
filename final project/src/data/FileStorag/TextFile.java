@@ -12,7 +12,7 @@ public class TextFile implements StoregeService{
     private  boolean createfile = false;
 
     public TextFile(String fileName){
-        this.fileName=fileName;
+        this.fileName=fileName+".txt";
     }
 
     @Override

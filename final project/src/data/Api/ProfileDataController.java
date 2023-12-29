@@ -15,7 +15,7 @@ public class ProfileDataController implements Controller{
 
         var user = Application.getUserService().getUser(name);
 
-        String data ="name: "+ user.getUserName() + " , "+"email: "+user.getEmail() + " , "+ "phone: "+user.getPhoneNumber()+" , "+"type"+user.getUserType()+
+        String data ="name: "+ user.getUserName() + " , "+"email: "+user.getEmail() + " , "+ "phone: "+user.getPhoneNumber()+" , "+"type: "+user.getUserType()+
                     " , "+"Country: "+user.getCountry() + " , "+"city: "+user.getCity() + " , "+ "department: "+user.getDepartment();
 
         storegeService.uploadData(data);

@@ -45,22 +45,12 @@ public class Application {
         Instant start = Instant.now();
         System.out.println("Application Started: " + start);
         //TODO Your application starts here. Do not Change the existing code
+        var ob = userService.getUser("user3");
+        System.out.println(ob.getUserType()+"................");
 
         UserData userData = new UserData();
 
-
-
-
-
-
-        userData.getData("user1" , "pass4");
-
-
-
-
-
-
-
+        userData.getData("user5" , "pass5");
 
 
         //TODO Your application ends here. Do not Change the existing code
