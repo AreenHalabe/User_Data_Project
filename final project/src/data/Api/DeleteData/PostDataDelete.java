@@ -6,7 +6,9 @@ import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 import posts.Post;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class PostDataDelete implements Icontroller{
     @Override
@@ -14,8 +16,13 @@ public class PostDataDelete implements Icontroller{
         try {
             // delete user post services
             List<Post> authorPosts = Application.getPostService().getPosts(username);
-            for (Post authorPost : authorPosts)
+
+            List<Post> copyOfAuthorPosts = new ArrayList<>(authorPosts);
+
+            for (Post authorPost : copyOfAuthorPosts) {
                 Application.getPostService().deletePost(username, authorPost.getId());
+            }
+            System.out.println("Deleted Successfuly from Posts");
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());

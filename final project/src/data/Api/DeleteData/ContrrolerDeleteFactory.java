@@ -1,7 +1,6 @@
 package data.Api.DeleteData;
 
 import data.Exception.BadDeleteRequstException;
-import data.UserService.HardDelete;
 import iam.UserType;
 
 import java.util.ArrayList;
