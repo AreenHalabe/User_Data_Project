@@ -1,21 +1,71 @@
 package data.Userdata;
 
-import activity.IUserActivityService;
-import iam.IUserService;
-import iam.UserProfile;
-import payment.IPayment;
-import posts.IPostService;
+import data.Api.Controller;
+import data.Api.ControllerFactory;
+import data.Application;
+import data.FileStorag.StoregeService;
+import data.FileStorag.TextFile;
+import exceptions.BadRequestException;
+import exceptions.NotFoundException;
+import exceptions.SystemBusyException;
+import exceptions.Util;
+import java.util.ArrayList;
+import java.util.List;
 
-public abstract class UserData {
-    private IUserActivityService iUserActivityService;
-    private IUserService userService;
-    private IPayment iPayment;
-    private IPostService iPostService;
-
-    public UserData(IUserActivityService iUserActivityService , IUserService iUserService , IPayment iPayment , IPostService iPostService){
-        this.iUserActivityService = iUserActivityService;
-        this.userService=iUserService;
-        this.iPayment=iPayment;
-        this.iPostService=iPostService;
+public class UserData {
+    private StoregeService storegeService;
+    private static List<Controller> Controllers;
+    public UserData(){
+        Controllers = new ArrayList<>();
     }
+
+
+    public boolean validateName(String name){
+        try {
+            Util.validateUserName(name);
+        }
+        catch (SystemBusyException e){
+            System.err.println(e.getMessage());
+            return false;
+        }
+        catch (BadRequestException e){
+            System.err.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+
+
+    public void ExportData()  {
+        String name = Application.getLoginUserName();
+        if(validateName(name)){
+            try{
+                var user = Application.getUserService().getUser(name);
+                storegeService= new TextFile(name);
+                Controllers = ControllerFactory.CreateController(user.getUserType());
+                FetchData(Controllers , name , storegeService);
+                Controllers.clear();
+            }
+            catch (BadRequestException e){
+                System.err.println(e.getMessage());
+            }
+            catch (NotFoundException e){
+                System.err.println(e.getMessage());
+            }
+            catch (SystemBusyException e){
+                System.err.println(e.getMessage());
+            }
+        }
+
+    }
+
+
+    private void FetchData(List<Controller> Controllers , String name , StoregeService storegeService)  {
+        for (Controller controller : Controllers) {
+            controller.getData(name, storegeService);
+        }
+    }
+
+
 }
