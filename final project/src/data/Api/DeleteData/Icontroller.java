@@ -5,5 +5,5 @@ import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 
 public interface Icontroller {
-    public void Delete(String username) throws SystemBusyException, NotFoundException, BadRequestException;
+    public void Delete(String username);
 }
