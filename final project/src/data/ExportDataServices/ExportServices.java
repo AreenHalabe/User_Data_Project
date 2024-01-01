@@ -31,7 +31,7 @@ public class ExportServices implements IExportServices{
             if(user != null){
                 Util.setSkipValidation(true);
             }
-            logger.NotifyAction(name , "Export data as "+typeOfExport);
+            logger.NotifyAction("Export data as "+typeOfExport);
             storegeService= new TextFileStorage(name);
             Controllers = ControllerFactory.CreateController(user.getUserType());
             FetchData(Controllers , name , storegeService);

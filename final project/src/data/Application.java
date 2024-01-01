@@ -41,10 +41,7 @@ public class Application {
         //TODO Your application starts here. Do not Change the existing code
 
          UserData userData = new UserData();
-         //userData.ExportData("pdf");
-        //DeleteServices deleteData=new DeleteServices();
-       // deleteData.Delete(getLoginUserName(),"hard");
-        userData.start();
+         userData.start();
 
 
 

@@ -5,18 +5,24 @@ import exceptions.BadRequestException;
 import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 import payment.Transaction;
+import posts.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentDataDelete implements Icontroller{
     @Override
     public void DeleteDataFromServices(String username)  {
         try {
-            // delete user payment services
             List<Transaction> transactions = Application.getPaymentService().getTransactions(username);
-            for (Transaction transaction : transactions)
+            List<Transaction> copyOftransactions = new ArrayList<>(transactions);
+
+            for (Transaction transaction : copyOftransactions)
                 Application.getPaymentService().removeTransaction(username, transaction.getId());
-            System.out.println("Deleted Successfully from Payment");
+
+        }
+        catch (RuntimeException e){
+            System.err.println("Something wrong try again");
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());
@@ -28,5 +34,6 @@ public class PaymentDataDelete implements Icontroller{
             System.err.println(e.getMessage());
         }
 
+        System.out.println("Deleted Successfully from Payment");
     }
 }

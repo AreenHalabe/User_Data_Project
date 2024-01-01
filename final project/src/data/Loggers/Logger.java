@@ -1,5 +1,7 @@
 package data.Loggers;
 
+import data.Application;
+
 public class Logger implements Loggers{
     private static Logger logger;
 
@@ -13,8 +15,10 @@ public class Logger implements Loggers{
         return logger;
     }
     @Override
-    public void NotifyAction(String name , String action) {
-        System.err.println("The user whose name ("+ name +") is currently make "+ action );
+    public void NotifyAction(String action) {
+        String Name = Application.getLoginUserName();
+
+        System.err.println("The user whose name ("+ Name +") try to make "+ action );
 
     }
 }

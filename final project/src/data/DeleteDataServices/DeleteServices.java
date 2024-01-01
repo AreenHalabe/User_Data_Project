@@ -28,7 +28,7 @@ public class DeleteServices implements IDeleteService {
             if(user != null){
                 Util.setSkipValidation(true);
             }
-            logger.NotifyAction(name , typedelete+" delete");
+            logger.NotifyAction(typedelete+" delete for his information");
             controllers= ContrrolerDeleteFactory.CreateController(typedelete,user.getUserType());
             System.out.println(controllers.size());
             DeleteData(controllers , name);

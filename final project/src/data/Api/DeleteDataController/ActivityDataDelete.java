@@ -5,7 +5,9 @@ import data.Application;
 import exceptions.BadRequestException;
 import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
+import posts.Post;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityDataDelete  implements  Icontroller{
@@ -13,9 +15,14 @@ public class ActivityDataDelete  implements  Icontroller{
     public void DeleteDataFromServices(String username)  {
         try {
             List<UserActivity> activities = Application.getUserActivityService().getUserActivity(username);
-            for (UserActivity activity : activities)
+            List<UserActivity> copyOfactivities = new ArrayList<>(activities);
+
+            for (UserActivity activity : copyOfactivities)
                 Application.getUserActivityService().removeUserActivity(username, activity.getId());
-            System.out.println("Deleted Successfully from Activity");
+
+        }
+        catch (RuntimeException e){
+            System.err.println("Something wrong try again");
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());
@@ -26,5 +33,6 @@ public class ActivityDataDelete  implements  Icontroller{
         catch (SystemBusyException e){
             System.err.println(e.getMessage());
         }
+        System.out.println("Deleted Successfully from Activity");
     }
 }
