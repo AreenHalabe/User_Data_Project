@@ -1,4 +1,4 @@
-package data.DeleteServices;
+package data.DeleteDataServices;
 
 import data.Api.DeleteDataController.ContrrolerDeleteFactory;
 import data.Api.DeleteDataController.Icontroller;
