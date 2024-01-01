@@ -1,4 +1,4 @@
-package data.Api.DeleteData;
+package data.Api.DeleteDataController;
 
 import data.Exception.BadDeleteRequstException;
 import iam.UserType;
@@ -30,7 +30,7 @@ public class ContrrolerDeleteFactory {
                }
                return controllers;
            } else {
-               throw new BadDeleteRequstException("Wrong type of Delete please chose (soft) or (hard)");
+               throw new BadDeleteRequstException("Wrong type of Delete please Enter one of the options (soft) or (hard)");
            }
 
        }

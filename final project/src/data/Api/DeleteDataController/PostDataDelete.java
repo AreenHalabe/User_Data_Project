@@ -1,4 +1,4 @@
-package data.Api.DeleteData;
+package data.Api.DeleteDataController;
 
 import data.Application;
 import exceptions.BadRequestException;
@@ -12,9 +12,8 @@ import java.util.List;
 
 public class PostDataDelete implements Icontroller{
     @Override
-    public void Delete(String username)  {
+    public void DeleteDataFromServices(String username)  {
         try {
-            // delete user post services
             List<Post> authorPosts = Application.getPostService().getPosts(username);
 
             List<Post> copyOfAuthorPosts = new ArrayList<>(authorPosts);
@@ -22,7 +21,7 @@ public class PostDataDelete implements Icontroller{
             for (Post authorPost : copyOfAuthorPosts) {
                 Application.getPostService().deletePost(username, authorPost.getId());
             }
-            System.out.println("Deleted Successfuly from Posts");
+            System.out.println("Deleted Successfully from Posts");
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());

@@ -1,4 +1,4 @@
-package data.Api.DeleteData;
+package data.Api.DeleteDataController;
 
 import data.Application;
 import exceptions.BadRequestException;
@@ -8,11 +8,12 @@ import iam.UserProfile;
 
 public class ProfileDataDelete implements Icontroller{
     @Override
-    public void Delete(String username)  {
+    public void DeleteDataFromServices(String username)  {
         try {
             // delete user profile data
             UserProfile userProfile = Application.getUserService().getUser(username);
             Application.getUserService().deleteUser(username);
+            System.out.println("Deleted Successfully from Profile");
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());

@@ -13,7 +13,8 @@ public class Logger implements Loggers{
         return logger;
     }
     @Override
-    public void NotifyAction(String action , String name) {
-        System.out.println("The user whose name ("+ name +") is currently "+ action + " his data");
+    public void NotifyAction(String name , String action) {
+        System.err.println("The user whose name ("+ name +") is currently make "+ action );
+
     }
 }

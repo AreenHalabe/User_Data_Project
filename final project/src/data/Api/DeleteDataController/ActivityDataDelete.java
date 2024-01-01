@@ -1,4 +1,4 @@
-package data.Api.DeleteData;
+package data.Api.DeleteDataController;
 
 import activity.UserActivity;
 import data.Application;
@@ -10,12 +10,12 @@ import java.util.List;
 
 public class ActivityDataDelete  implements  Icontroller{
     @Override
-    public void Delete(String username)  {
+    public void DeleteDataFromServices(String username)  {
         try {
-            // delete user activity services
             List<UserActivity> activities = Application.getUserActivityService().getUserActivity(username);
             for (UserActivity activity : activities)
                 Application.getUserActivityService().removeUserActivity(username, activity.getId());
+            System.out.println("Deleted Successfully from Activity");
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());

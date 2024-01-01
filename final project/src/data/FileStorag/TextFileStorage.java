@@ -6,12 +6,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.*;
 
-public class TextFile implements StoregeService{
+public class TextFileStorage implements StoregeService{
     private String folderPath="File_Storeg_data";
     private String fileName;
     private  boolean createfile = false;
 
-    public TextFile(String fileName){
+    public TextFileStorage(String fileName){
         this.fileName=fileName+".txt";
     }
 

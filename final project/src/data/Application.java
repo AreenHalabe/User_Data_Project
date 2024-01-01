@@ -3,7 +3,7 @@ package data;
 import activity.IUserActivityService;
 import activity.UserActivity;
 import activity.UserActivityService;
-import data.UserService.DeleteData;
+import data.DeleteServices.DeleteServices;
 import data.Userdata.UserData;
 import exceptions.Util;
 import iam.IUserService;
@@ -41,10 +41,10 @@ public class Application {
         setLoginUserName(userName);
         //TODO Your application starts here. Do not Change the existing code
 
-         //UserData userData = new UserData();
-         //userData.ExportData();
-        DeleteData deleteData=new DeleteData();
-        deleteData.Delete(getLoginUserName(),"hard");
+         UserData userData = new UserData();
+         userData.ExportData("pdf");
+        //DeleteServices deleteData=new DeleteServices();
+       // deleteData.Delete(getLoginUserName(),"hard");
 
 
 

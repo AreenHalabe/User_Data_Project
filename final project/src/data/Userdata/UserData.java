@@ -1,71 +1,40 @@
 package data.Userdata;
 
-import data.Api.Controller;
-import data.Api.ControllerFactory;
+import data.Api.FeatchDataController.Controller;
 import data.Application;
+import data.DeleteServices.DeleteServices;
+import data.DeleteServices.IDeleteService;
+import data.ExportDataServices.ExportServices;
+import data.ExportDataServices.IExportServices;
 import data.FileStorag.StoregeService;
-import data.FileStorag.TextFile;
-import exceptions.BadRequestException;
-import exceptions.NotFoundException;
-import exceptions.SystemBusyException;
-import exceptions.Util;
+import data.Loggers.Logger;
+import data.Loggers.Loggers;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserData {
-    private StoregeService storegeService;
-    private static List<Controller> Controllers;
-    public UserData(){
-        Controllers = new ArrayList<>();
-    }
+    private IDeleteService deleteService;
+
+    private IExportServices exportServices;
 
 
-    public boolean validateName(String name){
-        try {
-            Util.validateUserName(name);
-        }
-        catch (SystemBusyException e){
-            System.err.println(e.getMessage());
-            return false;
-        }
-        catch (BadRequestException e){
-            System.err.println(e.getMessage());
-            return false;
-        }
-        return true;
-    }
-
-
-
-    public void ExportData()  {
+    public void Deletedata(String typeDelete){
+        deleteService = new DeleteServices();
         String name = Application.getLoginUserName();
-        if(validateName(name)){
-            try{
-                var user = Application.getUserService().getUser(name);
-                storegeService= new TextFile(name);
-                Controllers = ControllerFactory.CreateController(user.getUserType());
-                FetchData(Controllers , name , storegeService);
-                Controllers.clear();
-            }
-            catch (BadRequestException e){
-                System.err.println(e.getMessage());
-            }
-            catch (NotFoundException e){
-                System.err.println(e.getMessage());
-            }
-            catch (SystemBusyException e){
-                System.err.println(e.getMessage());
-            }
-        }
-
+        deleteService.Delete(name , typeDelete);
     }
 
 
-    private void FetchData(List<Controller> Controllers , String name , StoregeService storegeService)  {
-        for (Controller controller : Controllers) {
-            controller.getData(name, storegeService);
-        }
+
+    public void ExportData(String typeOfExport)  {
+        exportServices = new ExportServices();
+        String name = Application.getLoginUserName();
+        exportServices.Export(name , typeOfExport);
     }
+
+
+
 
 
 }

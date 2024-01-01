@@ -1,25 +1,38 @@
-package data.UserService;
+package data.DeleteServices;
 
-import data.Api.DeleteData.ContrrolerDeleteFactory;
-import data.Api.DeleteData.Icontroller;
+import data.Api.DeleteDataController.ContrrolerDeleteFactory;
+import data.Api.DeleteDataController.Icontroller;
 import data.Application;
+import data.Loggers.Logger;
+import data.Loggers.Loggers;
 import exceptions.BadRequestException;
 import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
+import exceptions.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteData  {
+public class DeleteServices implements IDeleteService {
     private List<Icontroller> controllers;
-    public DeleteData(){
+    private Loggers logger;
+    public DeleteServices(){
         controllers= new ArrayList<>();
+        logger = Logger.CreatLogger();
     }
-    public void Delete(String username,String typedelete)  {
+
+    @Override
+    public void Delete(String name,String typedelete)  {
         try {
-            var user= Application.getUserService().getUser(username);
+            var user= Application.getUserService().getUser(name);
+            if(user != null){
+                Util.setSkipValidation(true);
+            }
+            logger.NotifyAction(name , typedelete+" delete");
             controllers= ContrrolerDeleteFactory.CreateController(typedelete,user.getUserType());
             System.out.println(controllers.size());
+            DeleteData(controllers , name);
+            Util.setSkipValidation(false);
         }
         catch (BadRequestException e){
             System.err.println(e.getMessage());
@@ -33,7 +46,7 @@ public class DeleteData  {
     }
     public void DeleteData(List<Icontroller> controllers , String name)  {
         for (Icontroller controller:controllers) {
-            controller.Delete(name);
+            controller.DeleteDataFromServices(name);
         }
     }
 }
