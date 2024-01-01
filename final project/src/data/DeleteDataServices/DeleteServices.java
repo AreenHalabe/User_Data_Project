@@ -30,7 +30,7 @@ public class DeleteServices implements IDeleteService {
             }
             logger.NotifyAction(typedelete+" delete for his information");
             controllers= ContrrolerDeleteFactory.CreateController(typedelete,user.getUserType());
-            System.out.println(controllers.size());
+            System.out.println("Deleting data.......");
             DeleteData(controllers , name);
             Util.setSkipValidation(false);
         }
