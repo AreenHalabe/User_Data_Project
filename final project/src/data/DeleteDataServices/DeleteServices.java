@@ -10,6 +10,7 @@ import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 import exceptions.Util;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,14 @@ public class DeleteServices implements IDeleteService {
 
     @Override
     public void Delete(String name,String typedelete)  {
+        if(Instant.now().getEpochSecond()%3==0){
+            try {
+                // Waiting for 1 seconds (1000 milliseconds)
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         try {
             var user= Application.getUserService().getUser(name);
             if(user != null){

@@ -1,6 +1,6 @@
 package data.ExportDataServices;
 
-import data.Api.FeatchDataController.Controller;
+import data.Api.FeatchDataController.FetchDataController;
 import data.Api.FeatchDataController.ControllerFactory;
 import data.Application;
 import data.Converter.ExportZIPConverter;
@@ -14,18 +14,19 @@ import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 import exceptions.Util;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ExportServices implements IExportServices{
     private StoregeService storegeService;
-    private List<Controller> Controllers;
+    private List<FetchDataController> fetchDataControllers;
     private Loggers logger;
     private ExportPDFConverter exportPDFConverter;
     private ExportZIPConverter exportZIPConverter;
 
     public ExportServices(){
-        Controllers = new ArrayList<>();
+        fetchDataControllers = new ArrayList<>();
         logger = Logger.CreatLogger();
         exportPDFConverter = new ExportPDFConverter();
         exportZIPConverter = new ExportZIPConverter();
@@ -33,6 +34,14 @@ public class ExportServices implements IExportServices{
     }
     @Override
     public void Export(String name, String typeOfExport) {
+        if(Instant.now().getEpochSecond()%3==0){
+            try {
+                // Waiting for 1 seconds (1000 milliseconds)
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         try{
             var user = Application.getUserService().getUser(name);
             if(user != null){
@@ -40,10 +49,9 @@ public class ExportServices implements IExportServices{
             }
             logger.NotifyAction("Export data as "+typeOfExport);
             storegeService= new TextFileStorage(name);
-            Controllers = ControllerFactory.CreateController(user.getUserType());
-            FetchData(Controllers , name , storegeService);
+            fetchDataControllers = ControllerFactory.CreateController(user.getUserType());
+            FetchData(fetchDataControllers, name , storegeService);
             convertAndSave( name,  name,  typeOfExport);
-
             Util.setSkipValidation(false);
         }
         catch (BadRequestException e){
@@ -57,9 +65,9 @@ public class ExportServices implements IExportServices{
         }
     }
 
-    private void FetchData(List<Controller> Controllers , String name , StoregeService storegeService)  {
-        for (Controller controller : Controllers) {
-            controller.getData(name, storegeService);
+    private void FetchData(List<FetchDataController> fetchDataControllers, String name , StoregeService storegeService)  {
+        for (FetchDataController fetchDataController : fetchDataControllers) {
+            fetchDataController.getData(name, storegeService);
         }
     }
     private void convertAndSave(String data, String name, String typeOfExport) {

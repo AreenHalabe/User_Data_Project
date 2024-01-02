@@ -37,3 +37,13 @@ w
 Gfinal project/src/data/Api/DeleteDataController/ActivityDataDelete.java,c\3\c3856b20bdbeb277a2b3deb0a9762beb0fe0d136
 v
 Ffinal project/src/data/Api/DeleteDataController/PaymentDataDelete.java,6\5\650f06ae8edb872f47fca01446bfe51a54ad90b9
+K
+final project/src/Main.java,8\8\88f0c8e2b56e69f2ce6080d1d0ce0c3f042d908c
+m
+=final project/src/data/DeleteDataServices/IDeleteService.java,b\b\bb4743469e8722df7e77b92aad3a1f9c7f2349d9
+Z
+*final project/src/data/Loggers/Logger.java,f\7\f78ac4fafc6415dff81a230db3341978216cea7c
+V
+&final project/src/iam/UserProfile.java,8\e\8e14f63eed6d9316f03e1d9271fd525a0f22807a
+V
+&final project/src/iam/UserService.java,b\f\bf768a9fefab17f8d16c746ac3592302057575af

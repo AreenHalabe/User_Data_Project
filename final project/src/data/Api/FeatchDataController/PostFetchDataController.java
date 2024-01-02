@@ -6,19 +6,22 @@ import exceptions.BadRequestException;
 import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 
-public class PaymentDataController implements Controller{
+public class PostFetchDataController implements FetchDataController {
+
     @Override
     public void getData(String name, StoregeService storegeService)  {
-        try {
-            var TransactionList = Application.getPaymentService().getTransactions(name);
+        try{
+            var Posts = Application.getPostService().getPosts(name);
             String data="";
-            for (var item: TransactionList) {
-                data = item.getId() + " , "+ item.getAmount() + " , "+item.getDescription();
+            for (var post: Posts) {
+                data = post.getId()+" , "+post.getTitle() + " , "+post.getDate() + " , "+post.getBody();
                 storegeService.uploadData(data);
+
             }
-            System.out.println("upload (Payment_Data) successfully.");
+            System.out.println("upload (Posts_Data) successfully.");
         }
-        catch (BadRequestException e){
+
+         catch (BadRequestException e){
             System.err.println(e.getMessage());
         }
         catch (NotFoundException e){
@@ -27,8 +30,6 @@ public class PaymentDataController implements Controller{
         catch (SystemBusyException e){
             System.err.println(e.getMessage());
         }
-
-
 
     }
 }

@@ -13,6 +13,7 @@ import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 import exceptions.Util;
 
+import java.time.Instant;
 import java.util.Scanner;
 
 public class UserData {
@@ -104,6 +105,15 @@ public class UserData {
 
 
     private boolean ValidateName(String name){
+        if(Instant.now().getEpochSecond()%3==0){
+            try {
+                // Waiting for 1 seconds (1000 milliseconds)
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         try {
             Util.validateUserName(name);
             return true;

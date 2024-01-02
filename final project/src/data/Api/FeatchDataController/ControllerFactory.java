@@ -7,19 +7,19 @@ import java.util.List;
 
 public class ControllerFactory {
 
-    public static final List<Controller> CreateController(UserType type){
-         List<Controller> controllerList = new ArrayList<>();
-        controllerList.add(new ProfileDataController());
-        controllerList.add(new PostDataController());
+    public static final List<FetchDataController> CreateController(UserType type){
+         List<FetchDataController> fetchDataControllerList = new ArrayList<>();
+        fetchDataControllerList.add(new ProfileFetchDataController());
+        fetchDataControllerList.add(new PostFetchDataController());
 
         if (UserType.REGULAR_USER.equals(type)) {
-            controllerList.add(new ActivityDataController());
+            fetchDataControllerList.add(new ActivityFetchDataController());
         }
         else if (UserType.PREMIUM_USER.equals(type)) {
-            controllerList.add(new ActivityDataController());
-            controllerList.add(new PaymentDataController());
+            fetchDataControllerList.add(new ActivityFetchDataController());
+            fetchDataControllerList.add(new PaymentFetchDataController());
         }
 
-        return controllerList;
+        return fetchDataControllerList;
     }
 }
