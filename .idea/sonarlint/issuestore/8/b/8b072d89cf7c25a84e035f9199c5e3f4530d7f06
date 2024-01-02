@@ -1,0 +1,11 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«•ÅÆúÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥½ÄÝ
+a
+java:S2147"DCombine this catch with the one at line 22, which has the same body.(˜äÔÂ8îÔÆ”Ì1
+f
+java:S2147"DCombine this catch with the one at line 25, which has the same body.(øä‡Äøÿÿÿÿ8Ù›Ê”Ì1
+S	java:S106"9Replace this use of System.out or System.err by a logger.(×ÁÜ±ùÿÿÿÿ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8ñÔÆ”Ì1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8óÔÆ”Ì1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8Û›Ê”Ì1
