@@ -1,0 +1,13 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°’‡íýÿÿÿÿ
+Z
+java:S2147"DCombine this catch with the one at line 27, which has the same body.(˜äÔÂ
+_
+java:S2147!"DCombine this catch with the one at line 30, which has the same body.(øä‡Äøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(„àÏýýÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ
+Z	java:S106""9Replace this use of System.out or System.err by a logger.(ïù¯¯ûÿÿÿÿ8çŸ”±Ì1
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(ÓÈ¤¡úÿÿÿÿ8÷±“±Ì1
+C
+java:S1128"'Remove this unused import 'posts.Post'.(µ¥è8êþŽ±Ì1

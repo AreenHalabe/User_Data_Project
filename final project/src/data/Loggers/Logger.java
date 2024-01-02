@@ -17,7 +17,6 @@ public class Logger implements Loggers{
     @Override
     public void NotifyAction(String action) {
         String Name = Application.getLoginUserName();
-
         System.err.println("The user whose name ("+ Name +") try to make "+ action );
 
     }
