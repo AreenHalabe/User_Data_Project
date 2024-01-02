@@ -44,6 +44,7 @@ public class UserData {
                         exportServices = new ExportServices();
                         String name = Application.getLoginUserName();
                         exportServices.Export(name , typeOfExport);
+                        break;
                     }
                     else {
                         throw new BadExportRequestException("Wrong type of format entered . please enter one of the option (pdf) or (zip)");
