@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContrrolerDeleteFactory {
-   public static List<Icontroller> CreateController(String typeDelete, UserType userType){
-       List<Icontroller> controllers= new ArrayList<>();
+   public static List<IDeleteDataController> CreateController(String typeDelete, UserType userType){
+       List<IDeleteDataController> controllers= new ArrayList<>();
        try {
            if(typeDelete.equals("hard")){
                controllers.add(new PostDataDelete());

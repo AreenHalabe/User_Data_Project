@@ -1,7 +1,7 @@
 package data.DeleteDataServices;
 
 import data.Api.DeleteDataController.ContrrolerDeleteFactory;
-import data.Api.DeleteDataController.Icontroller;
+import data.Api.DeleteDataController.IDeleteDataController;
 import data.Application;
 import data.Loggers.Logger;
 import data.Loggers.Loggers;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeleteServices implements IDeleteService {
-    private List<Icontroller> controllers;
+    private List<IDeleteDataController> controllers;
     private Loggers logger;
     public DeleteServices(){
         controllers= new ArrayList<>();
@@ -44,8 +44,8 @@ public class DeleteServices implements IDeleteService {
             System.err.println(e.getMessage());
         }
     }
-    public void DeleteData(List<Icontroller> controllers , String name)  {
-        for (Icontroller controller:controllers) {
+    public void DeleteData(List<IDeleteDataController> controllers , String name)  {
+        for (IDeleteDataController controller:controllers) {
             controller.DeleteDataFromServices(name);
         }
     }

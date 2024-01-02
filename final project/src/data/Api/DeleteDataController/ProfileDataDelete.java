@@ -6,7 +6,7 @@ import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
 import iam.UserProfile;
 
-public class ProfileDataDelete implements Icontroller{
+public class ProfileDataDelete implements IDeleteDataController {
     @Override
     public void DeleteDataFromServices(String username)  {
         try {

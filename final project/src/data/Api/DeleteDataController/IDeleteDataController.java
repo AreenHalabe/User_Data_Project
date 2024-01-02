@@ -1,5 +1,5 @@
 package data.Api.DeleteDataController;
 
-public interface Icontroller {
+public interface IDeleteDataController {
     public void DeleteDataFromServices(String username);
 }

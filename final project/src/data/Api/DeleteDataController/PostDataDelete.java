@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PostDataDelete implements Icontroller{
+public class PostDataDelete implements IDeleteDataController {
     @Override
     public void DeleteDataFromServices(String username)  {
         try {

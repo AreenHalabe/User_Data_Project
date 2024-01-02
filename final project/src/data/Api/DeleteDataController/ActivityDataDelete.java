@@ -5,12 +5,11 @@ import data.Application;
 import exceptions.BadRequestException;
 import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
-import posts.Post;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityDataDelete  implements  Icontroller{
+public class ActivityDataDelete  implements IDeleteDataController {
     @Override
     public void DeleteDataFromServices(String username)  {
         try {
