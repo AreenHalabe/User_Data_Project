@@ -1,11 +1,5 @@
 # User_Data_Project
 ## Data Deletion Feature :
-Certainly! Here's the formatted explanation for your Java README:
-
----
-
-## Data Deletion Feature
-
 We've introduced a new feature that allow users to delete their data based on user classification:
 
 - **Soft Delete:** Removes all information except basic data required for the account to function in the system.
