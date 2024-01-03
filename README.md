@@ -50,3 +50,17 @@ This overall design follows several good object-oriented principles and patterns
 - Exception handling best practices
 
 The key benefits are loose coupling, high cohesion and modular code. Adding new formats is easy by just adding another adapter class. The components isolate complexity and facilitate reuse and maintenance of conversion logic across the application.
+
+Certainly! Here's a formatted version of the explanation for your Java README:
+
+### File Storage Interface
+
+The File Storage interface is responsible for uploading data to various destinations. In our project, we have implemented the capability to upload data to a local text file. To add a new upload method, simply create a class and implement the FileStorage services.
+
+### FetchDataController Interface
+
+The FetchDataController interface is designed to fetch data about users from IAM, Payment, Posts, and Profile Services. To utilize this interface, create a controller for each service. Additionally, if you wish to add a new service for the user, you only need to create a controller for that service and implement it.
+
+### Loggers Interfaces
+
+The Loggers interfaces are designed to record every action that occurs in our application, consolidating the information into a single object to enhance performance and reduce RAM usage.
