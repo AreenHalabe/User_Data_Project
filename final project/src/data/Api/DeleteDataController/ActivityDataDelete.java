@@ -10,6 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityDataDelete  implements IDeleteDataController {
+    /**
+     * Deletes the user's activity data from services.
+     *
+     * @param username the user's username
+     * @throws BadRequestException if invalid request
+     * @throws NotFoundException if user not found
+     * @throws SystemBusyException if system is busy
+     */
     @Override
     public void DeleteDataFromServices(String username)  {
         try {

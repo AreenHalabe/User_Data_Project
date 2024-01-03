@@ -11,6 +11,14 @@ import java.util.List;
 
 
 public class PostDataDelete implements IDeleteDataController {
+    /**
+     * Deletes user's post data from services.
+     *
+     * @param username the user's username
+     * @throws BadRequestException if invalid request
+     * @throws NotFoundException if user not found
+     * @throws SystemBusyException if system is busy
+     */
     @Override
     public void DeleteDataFromServices(String username)  {
         try {

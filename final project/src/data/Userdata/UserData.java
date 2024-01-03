@@ -21,7 +21,12 @@ public class UserData {
 
     private IExportServices exportServices;
 
-
+    /**
+     * Deletes consumer records based totally on delete kind.
+     *
+     * @param typeDelete the kind of delete (smooth/tough)
+     * @throws BadDeleteRequstException if invalid delete type
+     */
     public void Deletedata(String typeDelete){
         Scanner scanner = new Scanner(System.in);
         while (true){

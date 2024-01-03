@@ -53,6 +53,12 @@ public class DeleteServices implements IDeleteService {
             System.err.println(e.getMessage());
         }
     }
+    /**
+     * Clears consumer records the use of drivers.
+     *
+     * @param controllers cast off controllers
+     * @param name  the username
+     */
     public void DeleteData(List<IDeleteDataController> controllers , String name)  {
         for (IDeleteDataController controller:controllers) {
             controller.DeleteDataFromServices(name);

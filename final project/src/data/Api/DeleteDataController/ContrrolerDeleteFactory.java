@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContrrolerDeleteFactory {
+    /**
+     * Creates a list of delete controllers based on delete type and user type
+     *
+     * @param typeDelete the type of delete (soft/hard)
+     * @param userType the type of user
+     * @return a list of controllers that handle delete operations
+     * @throws BadDeleteRequstException if invalid delete type
+     */
    public static List<IDeleteDataController> CreateController(String typeDelete, UserType userType){
        List<IDeleteDataController> controllers= new ArrayList<>();
        try {

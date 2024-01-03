@@ -7,6 +7,14 @@ import exceptions.SystemBusyException;
 import iam.UserProfile;
 
 public class ProfileDataDelete implements IDeleteDataController {
+    /**
+     * Deletes user profile data from services.
+     *
+     * @param username the users username
+     * @throws BadRequestException if invalid request
+     * @throws NotFoundException if user not found
+     * @throws SystemBusyException if system is busy
+     */
     @Override
     public void DeleteDataFromServices(String username)  {
         try {
