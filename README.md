@@ -53,14 +53,14 @@ The key benefits are loose coupling, high cohesion and modular code. Adding new 
 
 Certainly! Here's a formatted version of the explanation for your Java README:
 
-### File Storage Interface
+###﻿ File Storage Interface
 
-The File Storage interface is responsible for uploading data to various destinations. In our project, we have implemented the capability to upload data to a local text file. To add a new upload method, simply create a class and implement the FileStorage services.
+The File Storage interface is chargeable for uploading information to various destinations. In our mission, we've applied the functionality to add facts to a neighborhood text document. To add a new upload technique, virtually create a category and put in force the FileStorage services.
 
 ### FetchDataController Interface
 
-The FetchDataController interface is designed to fetch data about users from IAM, Payment, Posts, and Profile Services. To utilize this interface, create a controller for each service. Additionally, if you wish to add a new service for the user, you only need to create a controller for that service and implement it.
+The FetchDataController interface is designed to fetch statistics about users from IAM, Payment, Posts, and Profile Services. To utilize this interface, create a controller for each provider. Additionally, if you wish to add a new service for the consumer, you only want to create a controller for that carrier and enforce it.
 
 ### Loggers Interfaces
 
-The Loggers interfaces are designed to record every action that occurs in our application, consolidating the information into a single object to enhance performance and reduce RAM usage.
+The Loggers interfaces are designed to document every movement that occurs in our utility, consolidating the statistics into a unmarried object to decorate overall performance and decrease RAM usage
