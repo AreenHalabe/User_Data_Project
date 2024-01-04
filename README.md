@@ -53,9 +53,8 @@ The key benefits are loose coupling, high cohesion and modular code. Adding new 
 
 Certainly! Here's a formatted version of the explanation for your Java README:
 
-###﻿ File Storage Interface
-
-The File Storage interface is chargeable for uploading information to various destinations. In our mission, we've applied the functionality to add facts to a neighborhood text document. To add a new upload technique, virtually create a category and put in force the FileStorage services.
+### File Storage Interface
+The File Storage interface is responsible for uploading data to various destinations. In our project, we have implemented the capability to upload data to a local text file. To add a new upload method, simply create a class and implement the FileStorage services.
 
 ### FetchDataController Interface
 
