@@ -9,6 +9,7 @@ import data.FileStorag.StoregeService;
 import data.FileStorag.TextFileStorage;
 import data.Loggers.Logger;
 import data.Loggers.Loggers;
+import data.Userdata.UserData;
 import exceptions.BadRequestException;
 import exceptions.NotFoundException;
 import exceptions.SystemBusyException;
@@ -34,35 +35,13 @@ public class ExportServices implements IExportServices{
     }
     @Override
     public void Export(String name, String typeOfExport) {
-        if(Instant.now().getEpochSecond()%3==0){
-            try {
-                // Waiting for 1 seconds (1000 milliseconds)
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        try{
-            var user = Application.getUserService().getUser(name);
-            if(user != null){
-                Util.setSkipValidation(true);
-            }
-            logger.NotifyAction("Export data as "+typeOfExport);
-            storegeService= new TextFileStorage(name);
-            fetchDataControllers = ControllerFactory.CreateController(user.getUserType());
-            FetchData(fetchDataControllers, name , storegeService);
-            convertAndSave( name,  name,  typeOfExport);
-            Util.setSkipValidation(false);
-        }
-        catch (BadRequestException e){
-            System.err.println(e.getMessage());
-        }
-        catch (NotFoundException e){
-            System.err.println(e.getMessage());
-        }
-        catch (SystemBusyException e){
-            System.err.println(e.getMessage());
-        }
+        var user = UserData.getUser();
+        logger.NotifyAction("Export data as "+typeOfExport);
+        storegeService= new TextFileStorage(name);
+        fetchDataControllers = ControllerFactory.CreateController(user.getUserType());
+        FetchData(fetchDataControllers, name , storegeService);
+        convertAndSave(name,  typeOfExport);
+        Util.setSkipValidation(false);
     }
 
     private void FetchData(List<FetchDataController> fetchDataControllers, String name , StoregeService storegeService)  {
@@ -70,17 +49,20 @@ public class ExportServices implements IExportServices{
             fetchDataController.getData(name, storegeService);
         }
     }
-    private void convertAndSave(String data, String name, String typeOfExport) {
+    private void convertAndSave( String name, String typeOfExport) {
         String pdfFileName = "PDF_File/" + name + ".pdf";
         String zipFileName = "ZIP_File/" + name + ".zip";
 
         try {
             if ("pdf".equals(typeOfExport)) {
-                exportPDFConverter.convertToPDF(data, pdfFileName);
+                exportPDFConverter.convertToPDF(name, pdfFileName);
+                exportPDFConverter.convertToPDF(name, "C:\\Users\\Msys\\Downloads\\"+name+".pdf");
+
 
             } else if ("zip".equals(typeOfExport)) {
-                exportPDFConverter.convertToPDF(data, pdfFileName);
+                exportPDFConverter.convertToPDF(name, pdfFileName);
                 exportZIPConverter.convertToZIP(pdfFileName, zipFileName);
+                exportZIPConverter.convertToZIP(pdfFileName, "C:\\Users\\Msys\\Downloads\\"+name+".zip");
 
             } else {
                 throw new BadRequestException("Unsupported export type: " + typeOfExport);

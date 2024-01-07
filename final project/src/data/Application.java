@@ -146,4 +146,5 @@ public class Application {
     public static IPostService getPostService(){
         return postService;
     }
+
 }
