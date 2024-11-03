@@ -5,13 +5,13 @@
 This project is developed as part of a software development course. Its primary objective is to implement a well-functioning application that adheres to key software development principles, methodologies, and best practices learned throughout the course. The main focus areas include data exporting and data deletion features, which are evaluated based on specific functionality requirements.
 
 # Features
-  Data Exporting
-    Export and download data directly.
-    Upload data to a specified file storage service.
-    Convert files to PDF format or compress them into a zip file.
-  Data Deletion
-    Soft delete feature to retain data while marking it as deleted.
-    Hard delete feature to permanently remove data from storage.
+  *Data Exporting
+    *Export and download data directly.
+    *Upload data to a specified file storage service.
+    *Convert files to PDF format or compress them into a zip file.
+  *Data Deletion
+    *Soft delete feature to retain data while marking it as deleted.
+    *Hard delete feature to permanently remove data from storage.
 
 # Technologies Used
  java
